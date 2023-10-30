@@ -1,0 +1,110 @@
+// Lab-2.cpp
+// 
+// Working with conditionals and loops
+// (IF/ELSE statements and WHILE loops)
+ 
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <random>
+using namespace std;
+ 
+int main()
+{
+int x, y;
+int quotient;
+int remainder;
+ 
+cout << "(INTEGER DIVISION)" << endl;
+cout << "Enter an integer dividend (number to divide): ";
+cin >> x;
+cout << "Enter an integer divisor (divide by this number): ";
+cin >> y;
+ 
+// TASK 1: Fix the code below by putting spaces in the
+//         right places to make the output look nice.
+ 
+// Check to see if y is zero
+if (y == 0) {
+cout << "Cannot divide by zero." << endl << endl;
+}
+else {
+quotient = x / y;
+remainder = x % y;
+cout << x << " divided by " << y << " is ";
+cout << quotient << " with a remainder of ";
+cout << remainder << "." << endl;
+ 
+cout << "Which is " << static_cast<double>(x) / y << endl;
+cout << endl << endl; // Two blank lines;
+}
+ 
+ 
+// ----- Printing square roots
+double d1;
+double d2;
+ 
+cout << "(SQUARE ROOT)" << endl;
+cout << "Enter a positive number: ";
+cin >> d1;
+ 
+// TASK 2: Run and try some negative numbers.
+// Change the program by adding an IF statement
+// here so that d2 is only calculated and
+// printed if d1 is larger than zero (d1>0)
+// The IF statement should surround the next 3 lines:
+if (d1 > 0) {
+d2 = sqrt(d1);
+cout << "The square root of " << d1;
+cout << " is " << d2 << endl;
+ 
+ 
+}
+ 
+ 
+cout << endl << endl; // Two blank lines;
+ 
+ 
+double d3;
+ 
+// Printing cubes of numbers
+// Keep going while d3 is not zero
+cout << "(CALCULATE CUBES UNTIL ZERO)" << endl;
+cout << "Enter a number or zero to quit: ";
+cin >> d3;
+while (d3 != 0) {
+cout << d3 << " cubed is " << pow(d3, 3) << endl;
+cout << "Enter a number or zero to quit: ";
+cin >> d3;
+}
+ 
+ 
+cout << endl << endl; // Two blank lines;
+ 
+// TASK 3: Change the code below to allow repeats
+//         until a zero is entered, similar to the
+//         code above for printing cubes.
+//         "Enter an integer or zero to quit: "
+// Use a WHILE loop, being careful to include
+// the entire IF/ELSE statement inside the loop.
+ 
+// Determine if a number is odd or even
+cout << "(ODD OR EVEN)" << endl;
+cout << "Enter an integer or zero to quit: ";
+cin >> x;
+ 
+while (x != 0) {
+if (x % 2 == 0) {
+cout << x << " is an EVEN number." << endl;
+}
+else {
+cout << x << " is an ODD number." << endl;
+}
+cout << "Enter an integer or zero to quit: ";
+cin >> x;
+}
+cout << endl << endl; // Two blank lines;
+}
+ 
+// Run program: Ctrl + F5
+
