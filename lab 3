@@ -1,0 +1,152 @@
+// Lab3Loops.cpp
+//
+// NAME & DATE: 
+//
+// Run the program, then type 1, 2, or 3 to see the shapes
+ 
+#include "graphics.h"
+ 
+int main()
+{
+int x, y;
+int k;
+bool keepGoing = true;
+char keyPressed;
+ 
+// Open a graphics window
+initwindow(820, 820);
+ 
+while (keepGoing) {
+delay(100);
+ 
+if (kbhit()) {
+keyPressed = getch();
+ 
+switch (keyPressed)
+{
+case 'Q':
+case 'q':
+keepGoing = false;
+break;
+ 
+// TASK 1: make the uppercase C work, too
+case 'C':
+case 'c':
+cleardevice();
+break;
+ 
+case '1':
+// Yellow circles in horizonal line
+setcolor(YELLOW);
+setfillstyle(SOLID_FILL, YELLOW);
+ 
+// TASK 2: Change loop to count down instead of up,
+//         from 700 down to 100, SUBTRACTING 50 each time
+ 
+for (x = 700; x >= 100; x -= 50) {
+fillellipse(x, 400, 20, 20);
+delay(100);
+}
+break;
+ 
+case '2':
+// Light magenta boxes in vertical line
+setcolor(LIGHTMAGENTA);
+setfillstyle(SOLID_FILL, LIGHTMAGENTA);
+ 
+for (y = 50; y <= 750; y += 50) {
+// draw a box centered on (400, y)
+bar(400 - 10, y - 10, 400 + 10, y + 10);
+delay(100);
+}
+break;
+ 
+case '3':
+// Green circles - rows and columns
+//       demonstrates nested loop
+setcolor(LIGHTGREEN);
+setfillstyle(SOLID_FILL, LIGHTGREEN);
+ 
+// TASK 3: Switch the two loops so the
+//         y is the outer loop and x is inner.
+//         Just switch the next two lines, no
+//         other editing required.
+for (y = 250; y <= 550; y += 50) {
+for (x = 300; x <= 500; x += 50) {
+
+fillellipse(x, y, 15, 15);
+delay(100);
+}
+}
+break;
+ 
+// TASK 4: Make the '4' draw a big red circle
+//         use fillellipse with a center of 400, 400
+ 
+case '4':
+setcolor(RED);
+setfillstyle(SOLID_FILL, RED);
+fillellipse(400, 400, 200, 200);
+break;
+ 
+// TASK 5: Make the '5' key draw a
+//         series of white circles using a loop
+case'5':
+for (k = 50; k <= 400; k += 50) {
+circle(400, 400, k);
+delay(100);
+}
+delay;
+// circle (400, 400,  50);
+// circle (400, 400, 100);
+// circle (400, 400, 150);
+//   ...
+// circle (400, 400, 350);
+// circle (400, 400, 400);
+//
+// add a "delay(100);" inside the loop
+ 
+ 
+case '6':
+for (k = 0; k <= 800; k += 20) {
+line(0, k, k, 800);
+line(k, 0, 800, k);
+delay(100);
+}
+break;
+// TASK 6: Make the '6' key draw a series of lines
+//     line(0,   0,   0, 800);
+//     line(0,  40,  40, 800);
+//     line(0,  80,  80, 800);
+//     line(0, 120, 120, 800);
+//       ...
+//     line(0, 760, 760, 800);
+//     line(0, 800, 800, 800);
+//
+// add a "delay(100);" inside the loop
+//
+// Test it to make sure it works, then
+// add to the same loop to include these lines:
+//     line(  0, 0, 800,   0);
+//     line( 40, 0, 800,  40);
+//     line( 80, 0, 800,  80);
+//     line(120, 0, 800, 120);
+//       ...
+//     line(800, 0, 800, 800);
+ 
+ 
+ 
+ 
+ 
+ 
+} // end switch()
+ 
+} // end if(kbhit)
+ 
+} // end while(keepGoing)
+ 
+// Close window and quit
+closegraph();
+return 0;
+} // end main()
+
